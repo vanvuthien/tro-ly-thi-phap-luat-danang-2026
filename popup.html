@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Trợ Lý Pháp Luật 2026</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="header-brand">
+        <div class="logo-box">⚖️</div>
+        <div>
+          <h1 class="header-title">AI Trợ Lý Pháp Luật</h1>
+          <p class="header-subtitle">Thi Trực Tuyến Đà Nẵng 2026</p>
+        </div>
+      </div>
+      <div class="header-status" id="header-status-pill">
+        <span class="status-dot-sm"></span>
+        <span id="header-status-text">Sẵn sàng</span>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="tab-openai">
+        <span>⚙️</span> OpenAI / API
+      </button>
+      <button class="tab-btn" data-tab="tab-knowledge">
+        <span>📚</span> Tri Thức (421+ Câu)
+      </button>
+      <button class="tab-btn" data-tab="tab-security">
+        <span>🛠️</span> Cách Trả Lời
+      </button>
+    </nav>
+
+    <!-- TAB 1: OPENAI CONFIG -->
+    <div class="tab-content active" id="tab-openai">
+      <div class="form-group">
+        <label for="openai-key">API Key <span class="required">*</span></label>
+        <div class="input-with-action">
+          <input type="password" id="openai-key" placeholder="sk-..." autocomplete="off">
+          <button type="button" class="btn-toggle-key" id="btn-toggle-key" title="Ẩn/Hiện">👁️</button>
+        </div>
+        <small class="form-hint">Hỗ trợ OpenAI, Gemini Gateway, OneAPI, NewAPI, OpenRouter...</small>
+      </div>
+
+      <div class="form-group">
+        <label for="openai-base-url">API Endpoint (Base URL)</label>
+        <input type="text" id="openai-base-url" placeholder="https://api.openai.com/v1">
+        <small class="form-hint">Ví dụ: <code>https://api.openai.com/v1</code> hoặc <code>https://api.moniter.io.vn/v1</code></small>
+      </div>
+
+      <div class="form-group">
+        <label for="openai-model">Mô hình AI (LLM Model)</label>
+        <input type="text" id="openai-model" list="model-suggestions" placeholder="gpt-4o-mini hoặc gemini-1.5-flash...">
+        <datalist id="model-suggestions">
+          <option value="gpt-4o-mini">GPT-4o Mini (Khuyên dùng)</option>
+          <option value="gpt-4o">GPT-4o (Thông minh nhất)</option>
+          <option value="gemini-1.5-flash">Gemini 1.5 Flash (Gemini Gateway)</option>
+          <option value="gemini-2.0-flash">Gemini 2.0 Flash</option>
+          <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+          <option value="gpt-4-turbo">GPT-4 Turbo</option>
+          <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+        </datalist>
+        <small class="form-hint">Chọn từ gợi ý hoặc tự nhập tên model theo cấu hình của cổng API.</small>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn-secondary" id="btn-test-conn">
+          ⚡ Kiểm Tra Kết Nối
+        </button>
+        <button type="button" class="btn-primary" id="btn-save-settings">
+          💾 Lưu Cài Đặt
+        </button>
+      </div>
+
+      <div id="test-result-box" class="alert-box" style="display: none;"></div>
+    </div>
+
+    <!-- TAB 2: KNOWLEDGE BASE (NotebookLM Style) -->
+    <div class="tab-content" id="tab-knowledge">
+      <div class="knowledge-stats-card">
+        <div class="stat-item">
+          <span class="stat-number" id="stat-total-q">421</span>
+          <span class="stat-label">Câu hỏi ngân hàng đề</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="stat-total-sources">7</span>
+          <span class="stat-label">Bộ luật & Nghị định</span>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <span>📖 Tài Liệu Tích Hợp Sẵn</span>
+      </div>
+      <div class="sources-list" id="builtin-sources-list">
+        <div class="source-item">
+          <div class="source-icon">📗</div>
+          <div class="source-info">
+            <div class="source-title">Ngân hàng tham khảo 421 câu hỏi cho hai cuộc thi</div>
+            <div class="source-meta">Lao động, Việc làm, BHXH, Bảo vệ dữ liệu cá nhân</div>
+          </div>
+          <span class="badge-active">Hoạt động</span>
+        </div>
+        <div class="source-item">
+          <div class="source-icon">📜</div>
+          <div class="source-info">
+            <div class="source-title">Bộ luật Lao động 2019 & NĐ 145/2020</div>
+            <div class="source-meta">HĐLĐ, thử việc, làm thêm giờ, trợ cấp, kỷ luật</div>
+          </div>
+          <span class="badge-active">Hoạt động</span>
+        </div>
+        <div class="source-item">
+          <div class="source-icon">📜</div>
+          <div class="source-info">
+            <div class="source-title">Luật Việc làm số 74/2025/QH15 & BHTN</div>
+            <div class="source-meta">Chính sách việc làm, BHTN, việc làm công</div>
+          </div>
+          <span class="badge-active">Hoạt động</span>
+        </div>
+        <div class="source-item">
+          <div class="source-icon">📜</div>
+          <div class="source-info">
+            <div class="source-title">Luật Bảo hiểm xã hội 2024 & NĐ 158/2025</div>
+            <div class="source-meta">Hưu trí 15 năm, thai sản, ốm đau, tử tuất</div>
+          </div>
+          <span class="badge-active">Hoạt động</span>
+        </div>
+      </div>
+
+      <div class="section-title mt-3">
+        <span>➕ Thêm Nguồn Tri Thức Mới (NotebookLM)</span>
+      </div>
+
+      <!-- File Upload Box -->
+      <div class="upload-dropzone" id="upload-dropzone">
+        <div class="upload-icon">📁</div>
+        <div class="upload-text">Kéo thả tệp hoặc bấm để tải lên</div>
+        <div class="upload-sub">Hỗ trợ .txt, .md, .json</div>
+        <input type="file" id="file-input" accept=".txt,.md,.json" style="display: none;">
+      </div>
+
+      <!-- Quick Paste Text Source -->
+      <div class="quick-paste-box">
+        <input type="text" id="paste-title" placeholder="Tiêu đề tài liệu bổ sung (ví dụ: Ghi chú luật...)">
+        <textarea id="paste-content" placeholder="Dán nội dung điều luật, câu hỏi hoặc tài liệu bổ sung vào đây..."></textarea>
+        <button type="button" class="btn-secondary btn-sm" id="btn-add-paste">
+          + Thêm Vào Tri Thức
+        </button>
+      </div>
+
+      <div class="section-title mt-3">
+        <span>📂 Tài Liệu Của Bạn (<span id="custom-source-count">0</span>)</span>
+      </div>
+      <div class="custom-sources-list" id="custom-sources-list">
+        <div class="empty-hint">Chưa có tài liệu tùy chỉnh nào được tải lên.</div>
+      </div>
+    </div>
+
+    <!-- TAB 3: ANSWER BEHAVIOR -->
+    <div class="tab-content" id="tab-security">
+      <div class="form-group mt-3">
+        <label>Chế độ gợi ý</label>
+        <p>Khi chuyển câu, tiện ích tự hiển thị gợi ý khớp ngân hàng và làm sáng phương án tương ứng. Nút “Giải câu này” dùng để tra cứu thêm khi chưa khớp. Bạn tự chọn đáp án, chuyển câu và điền TL1.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <span>AI Trợ Lý Pháp Luật v1.1.3 • Hỗ trợ timhieuphapluatdanang2026.com</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

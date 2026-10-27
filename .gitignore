@@ -1,0 +1,23 @@
+# Archive files and backups
+*.rar
+*.zip
+*.7z
+*.tar.gz
+*.bak
+
+# Operating System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Editor / IDE configuration
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Antigravity / Agents
+.agents/
